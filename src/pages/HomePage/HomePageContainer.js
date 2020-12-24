@@ -3,6 +3,8 @@ import ListComponent from './components/ListComponent'
 import {useDispatch, useSelector} from 'react-redux';
 import { getListAction } from '../../actions/listAction'
 import './styles/homepage.css'
+import WithLoading from '../../Helpers/WithLoading/WithLoadingComponent';
+import Pagination from './components/Pagination';
 
 const HomePageContainer = () => {
     const dispatch = useDispatch()
@@ -15,18 +17,18 @@ const HomePageContainer = () => {
         setIsLoading(false)
     }
 
-    console.log(list)
-
     useEffect(()=>{
         getList()
-        
     },[])
 
     return (
         <div id="homepage">
             <div className="container">
                 <h1 style={{textAlign:"center"}}>This is homepage</h1>
-                <ListComponent/>
+                <WithLoading loading={isLoading}>
+                    <ListComponent list={list}/>
+                    <Pagination/>
+                </WithLoading>
             </div>
         </div>
     )

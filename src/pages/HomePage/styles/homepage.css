@@ -9,3 +9,7 @@
 #list-section {
     margin-top: 3rem;
 }
+
+#list-section .item-title{
+    max-width: 65%;
+}

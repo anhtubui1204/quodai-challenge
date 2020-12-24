@@ -1,1 +1,1 @@
-export const getListURL = 'https://api.github.com/repos/rails/rails/issues?page=1&per_page=5'
+export const getListURL = 'https://api.github.com/repos/rails/rails/issues'

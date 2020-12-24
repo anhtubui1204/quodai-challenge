@@ -6,8 +6,12 @@
     color: white;
 }
 
-#list-section {
+#page-section {
     margin-top: 3rem;
+}
+
+#list-section {
+    margin-top: 1rem;
 }
 
 #list-section .item-title{

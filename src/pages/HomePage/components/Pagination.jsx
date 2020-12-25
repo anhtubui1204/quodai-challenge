@@ -12,9 +12,11 @@ const Pagination = ({ page, setPage }) => {
 
     return (
         <div id="pagination" className="btn-group mt-3" role="group">
-            <button type="button" className="btn btn-outline-secondary" onClick={onHandleClickPrev}>
-                Previous
-            </button>
+            {page !== 1 && (
+                <button type="button" className="btn btn-outline-secondary" onClick={onHandleClickPrev}>
+                    Previous
+                </button>
+            )}
             <button type="button" className="btn btn-warning" onClick={onHandleClickNext}>
                 Next
             </button>

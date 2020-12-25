@@ -21,7 +21,7 @@ const HomePageContainer = () => {
         await dispatch(getListAction(page))
         setIsLoading(false)
     }
-
+    
     useEffect(()=>{
         getList(page)
     },[page])
@@ -34,9 +34,9 @@ const HomePageContainer = () => {
                     <h5>Page: {page}</h5>
                 </div>
                 <WithLoading loading={isLoading}>
-                    <ListComponent list={list}/>
-                    <Pagination page={page} setPage={setPage}/>
+                    <ListComponent list={list} />
                 </WithLoading>
+                <Pagination page={page} setPage={setPage}/>
                 <HighlightedItems items={highlighted_items}/>
             </div>
         </div>

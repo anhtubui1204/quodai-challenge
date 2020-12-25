@@ -1,0 +1,8 @@
+.highlight-item {
+    background-color: #68177B;
+    color: white!important;
+}
+
+.highlight-item:hover {
+    background-color: #831a9b;
+}

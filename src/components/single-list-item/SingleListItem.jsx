@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './single-list-item.css'
 
@@ -8,7 +8,17 @@ const SingleListItem = ({ item }) => {
     const dispatch = useDispatch()
 
     const highlighted_items = useSelector(state => state.highlighted_items)
-    const [ isHighlighted, setIsHighlighted] = useState(false)
+
+    const checkIsHighlighted = () => {
+        const found = highlighted_items.find( element => element.id === item.id)
+        if(found) {
+            return true;
+        } else {
+            return false ;
+        }
+    }
+
+    const isHighlighted = checkIsHighlighted();
 
     const onHandleHighlightItem = () => {
         if(isHighlighted) {
@@ -17,17 +27,6 @@ const SingleListItem = ({ item }) => {
             dispatch(highlightAction(item))
         }
     }
-
-    useLayoutEffect(() => {
-        const found = highlighted_items.find( element => element.id === item.id)
-        if(found) {
-            setIsHighlighted(true)
-            return;
-        } else {
-            setIsHighlighted(false)
-            return;
-        }
-    },[highlighted_items])
 
     return (
         <li

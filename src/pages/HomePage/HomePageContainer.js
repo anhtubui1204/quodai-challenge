@@ -29,7 +29,7 @@ const HomePageContainer = () => {
     return (
         <div id="homepage">
             <div className="container">
-                <h1 style={{textAlign:"center"}}>This is homepage</h1>
+                <h1 style={{textAlign:"center"}}>Issues</h1>
                 <div id="page-section">
                     <h5>Page: {page}</h5>
                 </div>

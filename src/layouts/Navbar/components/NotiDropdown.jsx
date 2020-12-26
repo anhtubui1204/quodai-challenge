@@ -27,8 +27,12 @@ const NotiDropdown = () => {
 
     return (
         <div className="dropdown">
-            <a className="dropdown-toggle" href="#" role="button" id="notiDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i className="fa fa-bell" style={{ color: "#68177B", fontSize: "18px"}}></i>
+            <a className="dropdown-toggle notification" href="#" role="button" id="notiDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span>
+                    <i className="fa fa-bell" style={{ color: "#68177B", fontSize: "18px" }}></i>
+                </span>
+                {/* When there are 1 or more highlighted_issues, a badge will appear */}
+                {highlighted_items.length > 0 && <span className="badge"></span>}
             </a>
 
             <ul className="dropdown-menu" aria-labelledby="notiDropdown">

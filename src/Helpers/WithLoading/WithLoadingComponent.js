@@ -1,6 +1,7 @@
 import React from 'react'
 import './with-loading.css'
 
+//component for handling loading spinner
 const WithLoadingComponent = ({ loading, children}) => {
 
     const Spin = () => <div className="loading text-center">
@@ -10,6 +11,7 @@ const WithLoadingComponent = ({ loading, children}) => {
 
     return (
         <>
+            {/* if loading is true then trigger spinner, else render the children component */}
             { loading ? (
                 <Spin/>
             ) : children }

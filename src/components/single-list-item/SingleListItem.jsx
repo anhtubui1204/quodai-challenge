@@ -5,21 +5,26 @@ import './single-list-item.css'
 import { highlightAction, unHighlightAction } from '../../actions/itemAction'
 
 const SingleListItem = ({ item }) => {
+    //initialize dispatch function
     const dispatch = useDispatch()
 
+    //get highlighted items from store
     const highlighted_items = useSelector(state => state.highlighted_items)
 
+    //function to check if current item is highlighted
     const checkIsHighlighted = () => {
-        const found = highlighted_items.find( element => element.id === item.id)
+        //match id in highlighted issues list
+        const found = highlighted_items.find(element => element.id === item.id)
         if(found) {
             return true;
         } else {
             return false ;
         }
     }
-
     const isHighlighted = checkIsHighlighted();
 
+    //handle highlight action - if current issue is already highlighted, then unhighlight it;
+    //else add item to highlighted issues list
     const onHandleHighlightItem = () => {
         if(isHighlighted) {
             dispatch(unHighlightAction(item))

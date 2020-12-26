@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
-import './styles/homepage.css'
+import './homepage.css'
 import { getListAction } from '../../actions/listAction'
 
 import WithLoading from '../../Helpers/WithLoading/WithLoadingComponent';
 import Pagination from './components/Pagination';
 import ListComponent from './components/ListComponent';
-import HighlightedItems from './components/HighlightedItems';
 
 const HomePageContainer = () => {
+    //initialize dispatch function
     const dispatch = useDispatch()
+
+    //define states
     const [page, setPage] = useState(1)
     const [isLoading, setIsLoading] = useState(false)
 
+    //get list from redux store
     const list = useSelector(state => state.list)
-    const highlighted_items = useSelector(state => state.highlighted_items)
 
+    //get list function
     const getList = async (page) => {
         setIsLoading(true)
         await dispatch(getListAction(page))
         setIsLoading(false)
     }
     
+    //rerender component once page changes
     useEffect(()=>{
         getList(page)
     },[page])
@@ -37,7 +41,6 @@ const HomePageContainer = () => {
                     <ListComponent list={list} />
                 </WithLoading>
                 <Pagination page={page} setPage={setPage}/>
-                <HighlightedItems items={highlighted_items}/>
             </div>
         </div>
     )

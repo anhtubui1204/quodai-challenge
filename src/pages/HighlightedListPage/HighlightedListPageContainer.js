@@ -4,6 +4,7 @@ import HighlightedListComponent from './components/HighlightedListComponent'
 import './highlighted-list.css'
 
 const HighlightedListPageContainer = () => {
+    //load highlighted issues from store
     const highlighted_items = useSelector(state => state.highlighted_items)
 
     return (

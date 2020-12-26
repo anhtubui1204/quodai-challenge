@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css'
 import NotiDropdown from './components/NotiDropdown';
 
+//navigation bar
 const Navbar = () => {
     return (
         <div id="header">

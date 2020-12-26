@@ -1,6 +1,7 @@
 import React from "react";
 import SingleListItem from '../../../components/single-list-item/SingleListItem'
 
+//handle list of issues
 const ListComponent = ({ list }) => {
 
     const DisplayList = () => {

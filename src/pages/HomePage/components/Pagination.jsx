@@ -1,11 +1,13 @@
 import React from "react";
 
 const Pagination = ({ page, setPage }) => {
+    //switch to previous page
     const onHandleClickPrev = () => {
         if(page === 1) return;
         else setPage(page-1)
     };
 
+    //switch to next page
     const onHandleClickNext = () => {
         setPage(page+1)
     };

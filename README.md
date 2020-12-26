@@ -5,6 +5,10 @@
 
 You can run:
 
+### `npm install`
+
+Install libraries and dependencies
+
 ### `npm start`
 
 Runs the app in the development mode.\

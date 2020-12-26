@@ -40,7 +40,7 @@ Another way is using immutable data structure.
 
 
 ### Deployed App
-The app is deployed to Heroku.\
-URL: https://quodai-challenge.herokuapp.com/.\
-Git: https://github.com/anhtubui1204/quodai-challenge.\
+The app is deployed to Heroku:
++ URL: https://quodai-challenge.herokuapp.com 
++ Git: https://github.com/anhtubui1204/quodai-challenge
 

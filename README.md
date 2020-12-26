@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# QuodAI React Challenge #2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Common Scripts
 
-In the project directory, you can run:
+You can run:
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Builds the app for production to the `build` folder.
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This simple webapp is built using ReactJS v16. with Redux.\
+This app fetchs and displays list of github issues.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Libraries and Dependencies
 
-### Code Splitting
+#### `Bootstrap` for styling:
++ pros: Help me saving more time for developing styling by using the predefined terms such as grid system, background, font config, etc.
++ cons: By having own standard of grid system, selector, or other codes, it limits my design if I become too dependent to Bootstrap. There will be conflict between my css codes with Bootstrap if I am not aware of that.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### State sharing between the component:
+In this app, I use 2 methods for state sharing between the components.\
+I use the traditional way which is using props. For example, `Pagination` and its parent `HomePageContainer` both use state "page", so I move up the "page" to the parent component instead of placing it in `Pagination`. This is the most simple way to implement but in large scale app, whenever you want to share state between the components which are way too far, it will be difficult and hard to maintain.\
+\
+Another method that I use is using redux store, which provides globalized state. It is called globalized because the state in store can be loaded from any levels of components. For example, `NotiDropdown` component and `HighlightedListPageContainer` component share the same state "highlighted-items". With the help of redux store, each component can load the state directly without moving up the state to the most closest common parent component, which is the traditional way. The cons of redux is that it is more complicated to implement, need more boilerate codes and excessive use of memory.
 
-### Analyzing the Bundle Size
+#### Make use of React Hooks
+The app is using fully React Hooks. The reason why I develop it by React Hooks is that it allows developers to write stateful component in a more straightforward way. No need to introduce class which might cause confusion for both people and machine. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Prevent wasted render
+As in this app I use React Hooks, using "useEffect" function is one of the ways to prevent unnecessary re-render. By using this function, you can make a component only re-render whenever there are changes of certain values.\
+Another way is using immutable data structure.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Deployed App
+The app is deployed to Heroku
+URL: https://quodai-challenge.herokuapp.com/
+Git: https://github.com/anhtubui1204/quodai-challenge
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

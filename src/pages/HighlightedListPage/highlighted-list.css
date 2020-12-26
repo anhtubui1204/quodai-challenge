@@ -5,6 +5,10 @@
     color: white;
 }
 
+#highlighted-list .item-title{
+    max-width: 65%;
+}
+
 #highlighted-issues-section {
     margin: 3rem 0 0 0;
 }

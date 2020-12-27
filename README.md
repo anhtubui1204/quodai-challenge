@@ -47,4 +47,5 @@ Another way is using immutable data structure.
 The app is deployed to Heroku:
 + URL: https://quodai-challenge.herokuapp.com 
 + Git: https://github.com/anhtubui1204/quodai-challenge
++ AWS: http://ec2-52-77-249-31.ap-southeast-1.compute.amazonaws.com
 

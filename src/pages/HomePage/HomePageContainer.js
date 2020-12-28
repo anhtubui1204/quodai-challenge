@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
+import initSocket from '../../utils/initSocketIO'
 import './homepage.css'
 import { getListAction } from '../../actions/listAction'
+import { highlightAction } from '../../actions/itemAction'
 
 import WithLoading from '../../Helpers/WithLoading/WithLoadingComponent';
 import Pagination from './components/Pagination';
@@ -29,6 +31,17 @@ const HomePageContainer = () => {
     useEffect(()=>{
         getList(page)
     },[page])
+
+    useEffect(()=>{
+        //handling receiving data from socket
+        initSocket.on('sendDataFromServer', data => {
+            if(data.socketId !== initSocket.id) {
+                dispatch(highlightAction(data.issue))
+            } else return;
+        })
+        
+        return () => initSocket.disconnect()
+    },[])
 
     return (
         <div id="homepage">

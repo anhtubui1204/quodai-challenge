@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import './single-list-item.css'
 
+import socket from '../../utils/initSocketIO'
 import { highlightAction } from '../../actions/itemAction'
 
 const SingleListItem = ({ item, setActiveIndex, isActive, index }) => {
@@ -17,6 +18,7 @@ const SingleListItem = ({ item, setActiveIndex, isActive, index }) => {
         } else {
             //handle highlight action
             dispatch(highlightAction(item))
+            socket.emit('highlight', item)
             setActiveIndex(-1) //unhighlight item after add to redux store
         }
     }

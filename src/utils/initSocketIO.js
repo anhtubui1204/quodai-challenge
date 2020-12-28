@@ -1,5 +1,5 @@
 import socketIOClient from "socket.io-client";
 
-const socket = socketIOClient('http://ec2-52-77-249-31.ap-southeast-1.compute.amazonaws.com', {transports: [ 'websocket', 'polling' ]})
+const socket = socketIOClient('http://localhost:5000', {transports: [ 'websocket', 'polling' ]})
 
 export default socket

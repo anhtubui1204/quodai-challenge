@@ -39,8 +39,6 @@ const HomePageContainer = () => {
                 dispatch(highlightAction(data.issue))
             } else return;
         })
-        
-        return () => initSocket.disconnect()
     },[])
 
     return (

@@ -1,42 +1,30 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import './single-list-item.css'
 
-import { highlightAction, unHighlightAction } from '../../actions/itemAction'
+import { highlightAction } from '../../actions/itemAction'
 
-const SingleListItem = ({ item }) => {
+const SingleListItem = ({ item, setActiveIndex, isActive, index }) => {
     //initialize dispatch function
     const dispatch = useDispatch()
 
-    //get highlighted items from store
-    const highlighted_items = useSelector(state => state.highlighted_items)
-
-    //function to check if current item is highlighted
-    const checkIsHighlighted = () => {
-        //match id in highlighted issues list
-        const found = highlighted_items.find(element => element.id === item.id)
-        if(found) {
-            return true;
+    const handleOnClick = (e) => {
+        e.preventDefault()
+        //when the item is not active (only highlighted) yet, it will be highlighted first
+        //then added to the highlighted list on second click, where isActive is already true.
+        if(!isActive) {
+            setActiveIndex(index)
         } else {
-            return false ;
-        }
-    }
-    const isHighlighted = checkIsHighlighted();
-
-    //handle highlight action - if current issue is already highlighted, then unhighlight it;
-    //else add item to highlighted issues list
-    const onHandleHighlightItem = () => {
-        if(isHighlighted) {
-            dispatch(unHighlightAction(item))
-        } else {
+            //handle highlight action
             dispatch(highlightAction(item))
+            setActiveIndex(-1) //unhighlight item after add to redux store
         }
     }
 
     return (
         <li
-            onClick={() => onHandleHighlightItem()}
-            className={`list-group-item ${isHighlighted ? 'highlight-item' : 'list-group-item-action'}`}
+            onClick={handleOnClick}
+            className={`list-group-item ${isActive ? 'highlight-item' : 'list-group-item-action'}`}
             style={{ color: "black" }}
         >
             <div className="d-flex w-100 justify-content-between ">

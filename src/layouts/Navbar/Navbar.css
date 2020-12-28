@@ -1,8 +1,16 @@
+@media(min-width: 768px) {
+    #header .dropdown-menu[aria-labelledby="notiDropdown"]{
+        left: -394px!important;
+        width: 410px!important;
+    }
+}
+
 #header .dropdown-menu[aria-labelledby="notiDropdown"]{
     padding: 0;
-    left: -394px;
-    width: 410px;
+    left: -283px;
+    width: 310px;
     box-shadow: 0px 5px 7px -1px #3b3b3b8c;
+    font-size: 14px;
 }
 
 #header .dropdown-menu[aria-labelledby="notiDropdown"] .head{
@@ -32,8 +40,8 @@
     position: absolute;
     top: -5px;
     right: -7px;
-    height: 12px;
-    width: 12px;
+    font-size: 10px;
+    color: white;
     background-color: red;
     border-radius: 50%;
     display: inline-block;
